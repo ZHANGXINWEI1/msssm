@@ -1,0 +1,10 @@
+
+#generated files by pdflatex
+*.aux
+*.log
+*.toc
+*.nav
+*.out
+*.snm
+*.vrb
+/presentation.pdf

@@ -1,0 +1,37 @@
+\documentclass[table]{beamer}
+
+\usepackage[utf8]{inputenc}
+
+% Meta-Informationen.
+\newcommand{\Titel}{Modelling Situations of Evacuation in a Multi-level
+Building}
+\title{\Titel}
+\author{Hans Hardmeier \and Andrin Jenal \and Beat Küng \and Felix Thaler}
+\date{Wednesday, 30.\,May 2012}
+
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsfonts, amsmath, amssymb, tabularx, textcomp}
+\usepackage{multicol}
+
+\usetheme{Berlin}
+\usecolortheme[rgb={0.7,0.1,0.1}]{structure}
+
+% Format.
+\renewcommand{\emph}{\textbf}
+\newcommand{\Code}{\texttt}
+\newcommand{\Aussen}[1]{\flqq#1\frqq}
+\newcommand{\Innen}[1]{\flq#1\frq}
+% PDF-Optionen.
+\usepackage{hyperref}
+\hypersetup{pdftitle={\Titel}, pdfsubject={Presentation}, pdfauthor={Hans
+Hardmeier, Andrin Jenal, Beat Küng, Felix Thaler}, pdfborder={0 0 0}}
+
+\begin{document}
+	\begin{frame}
+		\titlepage
+		\tableofcontents
+		\footnotesize{\href{http://creativecommons.org/licenses/by-sa/3.0/}{CC-BY-SA}}
+	\end{frame}
+	\input{parts}
+\end{document}
