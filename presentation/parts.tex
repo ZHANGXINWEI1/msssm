@@ -9,6 +9,22 @@
 \begin{frame}{Social force model}
 \end{frame}
 
+\section{Implementation}
+
+\begin{frame}{Implementation}
+\begin{itemize}
+ \item General config files suitable for many buildings
+ \item Color-coded bitmaps of floor plans
+ \item All formulas implemented as proposed by Dirk Helbling
+ \item Custom functions written in \textit{C}
+ \begin{itemize}
+  \item Fast Sweeping for path finding and wall interaction
+  \item 2D Range Tree for efficient inter-agent force computation
+  \item Bilinear interpolation to replace \textit{MATLAB}'s built in interp2()
+ \end{itemize}
+ \item Easily extendable code
+\end{itemize}
+\end{frame}
 
 
 \section{Demonstration}
