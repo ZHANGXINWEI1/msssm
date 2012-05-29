@@ -7,6 +7,45 @@
 \section{Model}
 
 \begin{frame}{Social force model}
+The social force model, introduced by Helbling is an agent based model to simulate pedestrians behaviour.\\
+Described forces
+\begin{itemize}
+\item Desired Force
+\item Interaction Force
+\item Wall Force
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Desired Direction}
+Every agent targets the shortest possible path with a desired velocity to the closest exit.
+\begin{equation*}
+f_{D}=\frac{v_{i}^{0}(t)\mathbf{e}_{i}^{0}(t)-\mathbf{v}_{i}(t)}{\tau_{i}}
+\end{equation*}
+\begin{itemize}
+\item $v_{i}^{0}(t)\mathbf{e}_{i}^{0}(t)$: Desired velocity and direction
+\item $\mathbf{v}_{i}(t)$: Current velocity
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Repulsive Interaction Force}
+All agents interact with each other when they get close. Prevent agents from penetrating.
+\begin{equation*}
+f_{ij}=\left\{A_{i}exp[(r_{ij}-d_{ij})/B_{i}]+kg(r_{ij}-d_{ij})\right\}\mathbf{n}_{ij}+\kappa g(r_{ij}-d_{ij})\triangle v_{ji}^t\mathbf{t}_{ij}
+\end{equation*}
+\begin{itemize}
+\item $A_{i}exp[(r_{ij}-d_{ij})/B_{i}]\cdot\mathbf{n}_{ij}$: Exponentially increasing force with an repulsive effect, the closer agents get to each other.
+\item The other two summands contribute only to the force when agents overlap
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Wall Force}
+The wall force fulfills the same purpose as the repulsive interaction force. Though prevents agents from penetrating walls.
+\begin{multline*}
+f_{iW}=\left\{A_{i}exp[(r_{i}-d_{iW})/B_{i}]+kg(r_{i}-d_{iW})\right\}\mathbf{n}_{iW}\\-\kappa g(r_{i}-d_{iW})(\mathbf{v}_{i}\cdot\mathbf{t}_{iW})\mathbf{t}_{iW}
+\end{multline*}
+\begin{itemize}
+\item Same as the repulsive interaction force between agents
+\end{itemize}
 \end{frame}
 
 \section{Implementation}
