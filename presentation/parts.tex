@@ -1,0 +1,115 @@
+\section{Problem statement}
+
+\begin{frame}{Problem statement}
+
+One level evacuation model well known \\
+$\rightarrow$  Multilevel? i.e. ETH-CAB?\\
+Goal: Tool to simulate evacuation in a given multilevel building.\\
+Requirements of solution
+\begin{itemize}
+\item Efficient
+\item Flexible
+\item Realistic
+\end{itemize}
+
+\end{frame}
+
+
+\section{Model}
+
+\begin{frame}{Social Force Model}
+The social force model, introduced by Helbling is an agent based model to simulate pedestrians behaviour.\\
+Described forces
+\begin{itemize}
+\item Desired Direction Force
+\item Interaction Force
+\item Wall Force
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Desired Direction}
+Every agent targets the shortest possible path with a desired velocity to the closest exit.
+\begin{equation*}
+f_{D}=\frac{v_{i}^{0}(t)\mathbf{e}_{i}^{0}(t)-\mathbf{v}_{i}(t)}{\tau_{i}}
+\end{equation*}
+\begin{itemize}
+\item $v_{i}^{0}(t)\mathbf{e}_{i}^{0}(t)$: Desired velocity and direction
+\item $\mathbf{v}_{i}(t)$: Current velocity
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Repulsive Interaction Force}
+All agents interact with each other when they get close. Prevent agents from penetrating.
+\begin{equation*}
+f_{ij}=\left\{A_{i}exp[(r_{ij}-d_{ij})/B_{i}]+kg(r_{ij}-d_{ij})\right\}\mathbf{n}_{ij}+\kappa g(r_{ij}-d_{ij})\triangle v_{ji}^t\mathbf{t}_{ij}
+\end{equation*}
+\begin{itemize}
+\item $A_{i}exp[(r_{ij}-d_{ij})/B_{i}]\cdot\mathbf{n}_{ij}$: Exponentially increasing force with an repulsive effect, the closer agents get to each other.
+\item The other two summands contribute only to the force when agents overlap
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Wall Force}
+The wall force fulfills the same purpose as the repulsive interaction force. Though prevents agents from penetrating walls.
+\begin{multline*}
+f_{iW}=\left\{A_{i}exp[(r_{i}-d_{iW})/B_{i}]+kg(r_{i}-d_{iW})\right\}\mathbf{n}_{iW}\\-\kappa g(r_{i}-d_{iW})(\mathbf{v}_{i}\cdot\mathbf{t}_{iW})\mathbf{t}_{iW}
+\end{multline*}
+\begin{itemize}
+\item Same as the repulsive interaction force between agents
+\end{itemize}
+\end{frame}
+
+\section{Implementation}
+
+\begin{frame}{Implementation}
+\begin{itemize}
+ \item General config files suitable for many buildings
+ \item Color-coded bitmaps of floor plans
+ \item All formulas implemented as proposed by Dirk Helbling
+ \item Custom functions written in \textit{C}
+ \begin{itemize}
+  \item Fast Sweeping for path finding and wall interaction
+  \item 2D Range Tree for efficient inter-agent force computation
+  \item Bilinear interpolation to replace \textit{MATLAB}'s built in interp2()
+ \end{itemize}
+ \item Easily extendable code
+\end{itemize}
+\end{frame}
+
+
+\section{Demonstration}
+
+\begin{frame}{Video demonstration}
+$\rightarrow$ config1\_frame.avi
+\end{frame}
+
+
+\section{Discussion}
+
+\begin{frame}{Discussion}
+\begin{itemize}
+	\item Model works as expected
+		\begin{itemize}
+			\item agents take shortest path towards exit
+			\item agents don't intersect with wall \& each other
+			\item formation of crowds
+		\end{itemize}
+	\item Stairs \& exits are bottlenecks
+	\item Simplified model: improvements possible
+		\begin{itemize}
+			\item add 'intelligence' to the agents
+			\item add a 'panic factor'
+			\item use different agent velocities
+		\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\section{Questions}
+
+\begin{frame}{Questions}
+	\begin{itemize}
+		\item Thanks for your attention!
+		\item Questions ?
+	\end{itemize}
+\end{frame}

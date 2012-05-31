@@ -1,0 +1,13 @@
+
+#generated files by pdflatex
+*.aux
+*.log
+*.toc
+*.nav
+*.out
+*.snm
+*.vrb
+/presentation.pdf
+
+#no idea what it is :)
+/presentation.synctex.gz
