@@ -217,7 +217,7 @@ is the behavior of the agents used in our model?}.
 \subsection{General Model}
 
 For our model, we will create a relatively general framework for behavioral
-simulation in evacuation scenarios based on the social force model introduced by Dirk Helbling \cite{SDFEP}.
+simulation in evacuation scenarios based on the social force model introduced by Dirk Helbing \cite{SDFEP}.
 A core investigation is a simulation, beginning in a general everyday situation,
 where people are spread randomly in their office or somewhere in the hallway and ending in an evacuation scenario.
 At the end we should be able to make strong
@@ -233,7 +233,7 @@ We implemented the model's forces as described in \cite{SDFEP}, a brief overview
 
 The reactions of the agents will mainly be influenced by different forces, modelparameters and the building structure itself.
 Describing this problem in mathematical terms, leads to an equation, where the mass, the desired direction $f_{D}$, the repulsive forces $f_{ij}$ and the wall force $f_{iW}$ of each individual agent contribute to the change of velocity in time.\\
-Helbling stated this problem as the following:"We assume a mixture of socio-psychological and physical forces influencing the behavior in a crowd: each of $N$ pedestrians $i$ of mass $m_{i}$ likes to move with a certain desired speed $v_{i}^0$ in a certain direction $\mathbf{e}_{i}^0$, and therefore tends to correspondingly adapt his or her actual velocity $\mathbf{v}_i$ with a certain characteristic time $\tau_{i}$. Simulataneously, he or she tries to keep a velocity-dependent distance from other pedestrians $j$ and walls $W$."
+Helbing stated this problem as the following:"We assume a mixture of socio-psychological and physical forces influencing the behavior in a crowd: each of $N$ pedestrians $i$ of mass $m_{i}$ likes to move with a certain desired speed $v_{i}^0$ in a certain direction $\mathbf{e}_{i}^0$, and therefore tends to correspondingly adapt his or her actual velocity $\mathbf{v}_i$ with a certain characteristic time $\tau_{i}$. Simulataneously, he or she tries to keep a velocity-dependent distance from other pedestrians $j$ and walls $W$."
 
 \begin{equation}
 m_{i}\frac{\mathsf{d}\mathbf{v}_{i}}{\mathsf{d}t}=m_{i}f_{D}+\sum \limits_{j(\neq{i})}{f_{ij}}+\sum \limits_{W}{f_{iW}}
@@ -264,7 +264,7 @@ certain distance. \cite{SDFEP}
 f_{ij}=\left\{A_{i}exp[(r_{ij}-d_{ij})/B_{i}]+kg(r_{ij}-d_{ij})\right\}\mathbf{n}_{ij}+\kappa g(r_{ij}-d_{ij})\triangle v_{ji}^t\mathbf{t}_{ij}
 \end{equation}
 
-According to Helbling the repulsive interaction force $A_{i}exp[(r_{ij}-d_{ij})/B_{i}]\mathbf{n}_{ij}$ describes the psychological tendency of two pedestrians $i$ and $j$ to stay away from each other, where $A_i$ and $B_i$ are constants. 
+According to Helbing the repulsive interaction force $A_{i}exp[(r_{ij}-d_{ij})/B_{i}]\mathbf{n}_{ij}$ describes the psychological tendency of two pedestrians $i$ and $j$ to stay away from each other, where $A_i$ and $B_i$ are constants. 
 "$d_{ij}=\|r_i-r_j\|$ denotes the distance between the pedestrians' centres of mass, and $\mathbf{n}_{ij}=(n_{ij}^1, n_{ij}^2)=\mathbf{r_i}-\mathbf{r_j}/d_{ij}$ is the normalized vector pointing from pedestrian $j$ to $i$.
 The pedestrians touch each other if their distance $d_{ij}$ is smaller than the sum $r_{ij}=(r_i+r_j)$ of their radii $r_i$ and $r_j$."\cite{SDFEP}
 If this is the case two addtional forces are considered:
@@ -279,7 +279,7 @@ and otherwise equal to the argument $x$."\cite{SDFEP}
 
 %TODO: WHATTHEFUCK is the point of this sentence?? there exists a wall force NORMAL to the wall SUCH THAT the closer agents gets to walls the stronger gets the TANGENTIAL force. please guys, could you at least read ONCE what you write?!?
 % could you once instead of writing a semi report about how shitty this work is, just correct it?  ;)
-Helbling states it the following:"$d_{iW}$ means the distance to wall $W$, $\mathbf{n}_{iW}$ denotes  the direction perpendicular to it, and $\mathbf{n}_{iW}$ the direction tangential to it, the corresponding interaction force with the wall is given by:" \cite{SFMPD}
+Helbing states it the following:"$d_{iW}$ means the distance to wall $W$, $\mathbf{n}_{iW}$ denotes  the direction perpendicular to it, and $\mathbf{n}_{iW}$ the direction tangential to it, the corresponding interaction force with the wall is given by:" \cite{SFMPD}
 
 \begin{equation}
 f_{iW}=\left\{A_{i}exp[(r_{i}-d_{iW})/B_{i}]+kg(r_{i}-d_{iW})\right\}\mathbf{n}_{iW}-\kappa g(r_{i}-d_{iW})(\mathbf{v}_{i}\cdot\mathbf{t}_{iW})\mathbf{t}_{iW}
@@ -424,7 +424,7 @@ velocity of the people is higher, jams at the exit will increase.
 
 We tested our algorithm mainly by simulating an evacuation of ETH's CAB building.
 The floor plans were downloaded from \cite{ethfloors} and converted to our coded bitmap representation.
-The results of the simulation are, as expected, comparable to those of Helbling as described in \cite{SFMPD} and \cite{SDFEP}.
+The results of the simulation are, as expected, comparable to those of Helbing as described in \cite{SFMPD} and \cite{SDFEP}.
 Our implementation realisticly shows some bottlenecks which get heavily crowded soon, especially the regions before stairs and exits.
 The speed of the agents decreases heavily due to the crowd and the time they need to reach the exits therefor increases rapidly.
 As we used real world units in our model, it was relatively simple to get the right scale for the simulation,
@@ -532,12 +532,12 @@ directed by Karsten Donnay and Stefano Balietti for their engagement in the lect
 \begin{thebibliography} {9}
 	
 	\bibitem{Zhao04afast} Zhao, Hongkai (2004): A Fast Sweeping Method for Eikonal Equations.
-	\bibitem{SFMPD} Helbling, Dirk; Molnar, Peter (1995): Social Force Model for Pedestrians Dynamics.
-	\bibitem{AACIBF} Helbling, Dirk; Johnson, Anders (2006): Analytical Approach to Continuous and Intermittent Bottleneck Flows.
+	\bibitem{SFMPD} Helbing, Dirk; Molnar, Peter (1995): Social Force Model for Pedestrians Dynamics.
+	\bibitem{AACIBF} Helbing, Dirk; Johnson, Anders (2006): Analytical Approach to Continuous and Intermittent Bottleneck Flows.
 	\bibitem{ACPPD} Schadschneider, Andreas et al. (2002): CA Approach to Collective Phenomena in Pedestrian Dynamics.	
-	\bibitem{DCD} Helbling, Dirk; Johansson, Anders (2007): Dynamics of crowd disasters: An empirical Study.
-	\bibitem{SDFEP} Helbling, Dirk et al. (2000): Simulating dynamical features of escape panic.
-	\bibitem{SPCD} Helbling, Dirk et al. (2005): Self-Organized Pedestrian Crowd Dynamics: Experiments, Simulations, and Design Solutions.
+	\bibitem{DCD} Helbing, Dirk; Johansson, Anders (2007): Dynamics of crowd disasters: An empirical Study.
+	\bibitem{SDFEP} Helbing, Dirk et al. (2000): Simulating dynamical features of escape panic.
+	\bibitem{SPCD} Helbing, Dirk et al. (2005): Self-Organized Pedestrian Crowd Dynamics: Experiments, Simulations, and Design Solutions.
 	\bibitem{dijkstra59a} Dijkstra, Edsger W. (1959): A Note on Two Problems in Connexion with Graphs.
 	\bibitem{fastmarching} Kroon, Dirk-Jan (2011): http://www.mathworks.com/matlabcentral/fileexchange/24531-accurate-fast-marching
 	\bibitem{algdat} Ottmann, Thomas; Widmayer, Peter (2002): Algorithmen und Datenstrukturen, 4. Auflage.
